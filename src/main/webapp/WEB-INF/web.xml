@@ -9,4 +9,14 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description>Servlet for receiving requests</description>
+    <display-name>VolumeCalculatorServlet</display-name>
+    <servlet-name>VolumeCalculatorServlet</servlet-name>
+    <servlet-class>ru.danilakondr.volumes.web.VolumeCalculatorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VolumeCalculatorServlet</servlet-name>
+    <url-pattern>/calc</url-pattern>
+  </servlet-mapping>
 </web-app>
