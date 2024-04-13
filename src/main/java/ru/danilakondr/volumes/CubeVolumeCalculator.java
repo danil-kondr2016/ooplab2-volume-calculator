@@ -20,6 +20,9 @@ public class CubeVolumeCalculator extends Calculator {
 		super();
 	}
 
+	/**
+	 * Вычисляет объём куба.
+	 */
 	@Override
 	public BigDecimal calculate() {
 		BigDecimal a = getParameter("a");
