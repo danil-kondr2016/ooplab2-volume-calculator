@@ -4,6 +4,25 @@
 <meta charset="UTF-8">
 <title>Ответ на запрос</title>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="katex.min.css">
+<script defer src="katex.min.js"></script>
+<script defer src="auto-render.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          // • rendering keys, e.g.:
+          throwOnError : false
+        });
+    });
+</script>
 </head>
 <body>
 
@@ -12,13 +31,14 @@
 </header>
 
 <main>
-<h2>Вы выбрали: ${calc-type}</2>
+<h2>Вы выбрали: ${calc-type}</h2>
 <h2>Ваши параметры: </h2>
 
 ${parameters}
 
-<h2>Ответ:</h2> <p>${answer}</p>
+<h2>Ответ:</h2> <p>\[V = ${answer}\]</p>
 
+<p><a href="index.html">Возврат к списку калькуляторов</a></p>
 </main>
 
 </body>
