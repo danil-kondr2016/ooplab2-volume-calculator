@@ -22,7 +22,7 @@ public abstract class Calculator {
 	}
 
 	/**
-	 * Устанавливает значение параметра.
+	 * Установить значение параметра.
 	 * 
 	 * @param name название параметра
 	 * @param value значение параметра
@@ -32,17 +32,23 @@ public abstract class Calculator {
 	}
 	
 	/**
-	 * Получает значение параметра. По умолчанию возвращает
-	 * <code>BigDecimal.ZERO</code>.
+	 * Получить значение параметра.
+	 * 
 	 * @param name название параметра
-	 * @return значение параметра
+	 * @return значение параметра, по умолчанию &mdash; <code>BigDecimal.ZERO</code>
 	 */
 	public BigDecimal getParameter(String name) {
 		return parameters.getOrDefault(name, BigDecimal.ZERO);
 	}
 
+	/**
+	 * @return список параметров
+	 */
 	public abstract String[] getParameters();
 	
+	/**
+	 * @return название калькулятора
+	 */
 	public abstract String getName();
 	
 	public abstract BigDecimal calculate();

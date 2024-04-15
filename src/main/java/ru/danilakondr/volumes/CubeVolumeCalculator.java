@@ -12,6 +12,7 @@ import java.math.BigDecimal;
  * </ul>
  * 
  * @author Данила А. Кондратенко
+ * @since 0.1.0
  * @see Calculator
  */
 public class CubeVolumeCalculator extends Calculator {
