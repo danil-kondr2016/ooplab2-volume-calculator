@@ -39,8 +39,10 @@ public class CalculatorFactory {
 		String type = "";
 		
 		for (Map.Entry<String, String> e : x.entrySet()) {
-			if (e.getKey() == "type")
+			if (e.getKey().compareTo("type") == 0) {
 				type = e.getValue();
+				continue;
+			}
 			
 			BigDecimal val = new BigDecimal(e.getValue());
 			parameters.put(e.getKey(), val);
