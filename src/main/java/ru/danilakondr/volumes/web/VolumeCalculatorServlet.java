@@ -31,30 +31,13 @@ public class VolumeCalculatorServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    private HashMap<String, String> getQueryMap(HttpServletRequest request)
-    {
-    	HashMap<String, String> result = new HashMap<>();
-    	String queryString = request.getQueryString();
-    	
-    	for (String query : queryString.split("\\&")) {
-    		String[] pair = query.split("=");
-    		
-    		String key = URLDecoder.decode(pair[0], StandardCharsets.UTF_8);
-    		String value = URLDecoder.decode(pair[1], StandardCharsets.UTF_8);
-    		
-    		result.put(key, value);
-    	}
-    	
-    	return result;
-    }
-    
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		preventCaching(request, response);
 		
-		HashMap<String, String> query = getQueryMap(request);
+		HashMap<String, String> query = QueryUtils.getQueryMap(request.getQueryString());
 		Calculator calc = CalculatorFactory.createCalc(query);
 		BigDecimal answer = calc.calculate();
 		
