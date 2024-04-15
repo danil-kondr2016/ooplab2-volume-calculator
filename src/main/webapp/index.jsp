@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page import="java.util.*, java.math.*, ru.danilakondr.volumes.*, ru.danilakondr.volumes.web.CalculatorFactory" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,8 +35,11 @@
 
 <main>
 <h2>Выберите калькулятор: </h2>
-<p><a href="form?type=cube">Объём куба</a>
-<p><a href="form?type=box">Объём прямоугольного параллелепипеда</a>
+<%
+	for (String x : CalculatorFactory.getCalcTypes()) {
+		out.print(String.format("<p><a href=\"form?type=%s\">%s</a></p>\r\n", x, CalculatorFactory.getCalcName(x)));
+	}
+ %>
 </main>
 
 </body>
