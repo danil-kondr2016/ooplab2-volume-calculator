@@ -31,13 +31,13 @@
 </header>
 
 <main>
-<h1>Калькулятор объёма куба</h1>
+<h1>${calc-name}</h1>
 
-<p>Объём куба вычисляется по формуле \[V = a^3\], где \(a\) &mdash; это сторона куба</p>
+${documentation}
 
 <form class="calc" action="/VolumeCalculator/calc" method="get">
-<input type="hidden" name="type" value="cube">
-<p>\(a =\) <input name="a"></p>
+<input type="hidden" name="type" value="${calc-type}">
+${parameters}
 <p><input type="submit"></p>
 </form>
 

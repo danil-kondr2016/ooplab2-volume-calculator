@@ -20,7 +20,7 @@ import java.math.BigDecimal;
 public class BoxVolumeCalculator extends Calculator {
 	private static final String[] PARAMETERS = new String[] {"a", "b", "c"};
 	private static final String CALC_NAME = "Калькулятор объёма прямоугольного параллелепипеда";
-	private static final String HTML_DOC = "<p>Объём прямоугольного параллелепипеда вычисляется по формуле \\[V = abc,\\] где \\(a, b, c\\) &mdash; это измерения прямоугольного параллелепипеда</p>";
+	private static final String HTML_DOC = "<p>Объём прямоугольного параллелепипеда вычисляется по формуле \\\\[V = abc,\\\\] где \\\\(a, b, c\\\\) &mdash; это измерения прямоугольного параллелепипеда</p>";
 	
 	public BoxVolumeCalculator() {
 		super();

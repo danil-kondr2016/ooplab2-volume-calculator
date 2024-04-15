@@ -19,4 +19,14 @@
     <servlet-name>VolumeCalculatorServlet</servlet-name>
     <url-pattern>/calc</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>VolumeCalcFormServlet</display-name>
+    <servlet-name>VolumeCalcFormServlet</servlet-name>
+    <servlet-class>ru.danilakondr.volumes.web.VolumeCalcFormServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>VolumeCalcFormServlet</servlet-name>
+    <url-pattern>/form</url-pattern>
+  </servlet-mapping>
 </web-app>
