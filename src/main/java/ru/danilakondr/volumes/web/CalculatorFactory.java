@@ -1,6 +1,7 @@
 package ru.danilakondr.volumes.web;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
 import java.util.Map;
 import ru.danilakondr.volumes.*;
 
@@ -27,6 +28,24 @@ public class CalculatorFactory {
 		}
 		
 		return result;
+	}
+	
+	public static Calculator createCalc(Map<String, String> x) {
+		if (!x.containsKey("type"))
+			throw new IllegalArgumentException("type key not found in the parameter map");
+		
+		HashMap<String, BigDecimal> parameters = new HashMap<>();
+		String type = "";
+		
+		for (Map.Entry<String, String> e : x.entrySet()) {
+			if (e.getKey() == "type")
+				type = e.getValue();
+			
+			BigDecimal val = new BigDecimal(e.getValue());
+			parameters.put(e.getKey(), val);
+		}
+		
+		return createCalc(type, parameters);
 	}
 
 }
