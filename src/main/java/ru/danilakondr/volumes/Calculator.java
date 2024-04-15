@@ -20,7 +20,7 @@ public abstract class Calculator {
 	public Calculator() {
 		parameters = new HashMap<>();
 	}
-	
+
 	/**
 	 * Устанавливает значение параметра.
 	 * 
@@ -40,6 +40,10 @@ public abstract class Calculator {
 	public BigDecimal getParameter(String name) {
 		return parameters.getOrDefault(name, BigDecimal.ZERO);
 	}
+
+	public abstract String[] getParameters();
+	
+	public abstract String getName();
 	
 	public abstract BigDecimal calculate();
 }

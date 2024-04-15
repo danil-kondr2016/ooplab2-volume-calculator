@@ -15,9 +15,21 @@ import java.math.BigDecimal;
  * @see Calculator
  */
 public class CubeVolumeCalculator extends Calculator {
-
+	private static final String[] PARAMETERS = new String[] {"a"};
+	private static final String CALC_NAME = "Калькулятор объёма куба";
+	
 	public CubeVolumeCalculator() {
 		super();
+	}
+	
+	@Override
+	public String[] getParameters() {
+		return PARAMETERS;
+	}
+	
+	@Override
+	public String getName() {
+		return CALC_NAME;
 	}
 
 	/**

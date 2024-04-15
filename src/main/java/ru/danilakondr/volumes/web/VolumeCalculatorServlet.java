@@ -11,6 +11,7 @@ import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -22,10 +23,6 @@ import java.util.regex.Pattern;
 public class VolumeCalculatorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-	private static final Map<String, String> calc_type_names = Map.ofEntries(
-			Map.entry("cube", "Калькулятор объёма куба")
-			);
-	
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -71,14 +68,13 @@ public class VolumeCalculatorServlet extends HttpServlet {
 		Calculator calc = CalculatorFactory.createCalc(type, parameters);
 		BigDecimal answer = calc.calculate();
 		
-		String locType = calc_type_names.get(type);
+		String locType = calc.getName();
 		
 		StringBuilder parametersString = new StringBuilder();
 		parametersString.append("<ul>\r\n");
-		parameters.entrySet()
-		.stream()
-		.map((e) -> String.format("  <li>\\\\(%s = %s\\\\)</li>\r\n", e.getKey(), e.getValue()))
-		.forEach((x) -> parametersString.append(x));
+		Arrays.stream(calc.getParameters())
+			.map((p) -> String.format("  <li>\\\\(%s = %s\\\\)</li>\r\n", p, calc.getParameter(p)))
+			.forEach((x) -> parametersString.append(x));
 		parametersString.append("</ul>\r\n");
 		
 		Map<String, String> vars = Map.of("calc-type", locType, "parameters", parametersString.toString(), "answer", answer.toString());
