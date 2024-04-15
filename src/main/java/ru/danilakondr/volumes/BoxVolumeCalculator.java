@@ -20,22 +20,12 @@ import java.math.BigDecimal;
 public class BoxVolumeCalculator extends Calculator {
 	private static final String[] PARAMETERS = new String[] {"a", "b", "c"};
 	private static final String CALC_NAME = "Калькулятор объёма прямоугольного параллелепипеда";
-	
+	private static final String HTML_DOC = "<p>Объём прямоугольного параллелепипеда вычисляется по формуле \\[V = abc,\\] где \\(a, b, c\\) &mdash; это измерения прямоугольного параллелепипеда</p>";
 	
 	public BoxVolumeCalculator() {
 		super();
 	}
-
-	@Override
-	public String[] getParameters() {
-		return PARAMETERS;
-	}
-
-	@Override
-	public String getName() {
-		return CALC_NAME;
-	}
-
+	
 	@Override
 	public BigDecimal calculate() {
 		BigDecimal a = getParameter("a");

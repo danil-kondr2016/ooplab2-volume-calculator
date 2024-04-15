@@ -18,21 +18,12 @@ import java.math.BigDecimal;
 public class CubeVolumeCalculator extends Calculator {
 	private static final String[] PARAMETERS = new String[] {"a"};
 	private static final String CALC_NAME = "Калькулятор объёма куба";
+	private static final String HTML_DOC = "<p>Объём куба вычисляется по формуле \\[V = a^3,\\] где \\(a\\) &mdash; это сторона куба</p>";
 	
 	public CubeVolumeCalculator() {
 		super();
 	}
 	
-	@Override
-	public String[] getParameters() {
-		return PARAMETERS;
-	}
-	
-	@Override
-	public String getName() {
-		return CALC_NAME;
-	}
-
 	/**
 	 * Вычисляет объём куба.
 	 */
