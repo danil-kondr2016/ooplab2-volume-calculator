@@ -8,6 +8,7 @@ import ru.danilakondr.volumes.*;
 public class CalculatorFactory {
 	private static Map<String, Class<? extends Calculator>> calculators = Map.ofEntries(
 			Map.entry("cube", CubeVolumeCalculator.class)
+			, Map.entry("box", BoxVolumeCalculator.class)
 	);
 			
 	
