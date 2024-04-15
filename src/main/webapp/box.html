@@ -31,13 +31,15 @@
 </header>
 
 <main>
-<h1>Калькулятор объёма куба</h1>
+<h1>Калькулятор объёма прямоугольного параллелепипеда</h1>
 
-<p>Объём куба вычисляется по формуле \[V = a^3\], где \(a\) &mdash; это сторона куба</p>
+<p>Объём прямоугольного параллелепипеда вычисляется по формуле \[V = abc\], где \(a, b, c\) &mdash; это измерения прямоугольного параллелепипеда</p>
 
 <form class="calc" action="/VolumeCalculator/calc" method="get">
-<input type="hidden" name="type" value="cube">
+<input type="hidden" name="type" value="box">
 <p>\(a =\) <input name="a"></p>
+<p>\(b =\) <input name="b"></p>
+<p>\(c =\) <input name="c"></p>
 <p><input type="submit"></p>
 </form>
 
