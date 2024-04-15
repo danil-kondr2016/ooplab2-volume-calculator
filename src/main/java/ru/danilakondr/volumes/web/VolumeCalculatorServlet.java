@@ -55,17 +55,7 @@ public class VolumeCalculatorServlet extends HttpServlet {
 		preventCaching(request, response);
 		
 		HashMap<String, String> query = getQueryMap(request);
-		String type = query.get("type");
-		
-		HashMap<String, BigDecimal> parameters = new HashMap<>();
-		for (Map.Entry<String, String> e : query.entrySet()) {
-			if (e.getKey().equals("type"))
-				continue;
-			
-			parameters.put(e.getKey(), new BigDecimal(e.getValue()));
-		}
-		
-		Calculator calc = CalculatorFactory.createCalc(type, parameters);
+		Calculator calc = CalculatorFactory.createCalc(query);
 		BigDecimal answer = calc.calculate();
 		
 		String locType = calc.getName();
