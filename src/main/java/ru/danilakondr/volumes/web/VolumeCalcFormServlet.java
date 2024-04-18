@@ -19,7 +19,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Servlet implementation class VolumeCalcFormServlet
+ * Сервлет, отвечающий за отображение формы, куда вводить параметры
+ * для вычисления. По идентификатору определяет название калькулятора
+ * и его описание (всё это уже имеется в самих калькуляторах). Для
+ * формирования формул используются внутренние ресурсы.
+ * 
+ * @author Данила А. Кондратенко
+ * @since 0.2.0
  */
 public class VolumeCalcFormServlet extends VolumeCalculatorServlet {
 	private static final long serialVersionUID = 1L;
