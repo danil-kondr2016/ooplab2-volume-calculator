@@ -45,7 +45,7 @@ public class VolumeCalcFormServlet extends VolumeCalculatorServlet {
 		
 		StringBuilder formList = new StringBuilder();
 		Arrays.stream(calc.getParameters())
-			.map((p) -> String.format("<p>\\\\(%s = \\\\)<input name=\"%s\"></p>\r\n", p, p))
+			.map((p) -> String.format("<p>\\(%s = \\)<input name=\"%s\"></p>\r\n", p, p))
 			.forEach((x) -> formList.append(x));
 		
 		Map<String, String> vars = Map.of("calc-name", locType, "calc-type", query.get("type"), "parameters", formList.toString(), "documentation", calc.getDocumentation());
@@ -57,7 +57,7 @@ public class VolumeCalcFormServlet extends VolumeCalculatorServlet {
 			
 			Matcher m = varPattern.matcher(template);
 			while (m.find()) {
-				m.appendReplacement(output, vars.get(m.group(1)));
+				m.appendReplacement(output, vars.get(m.group(1)).replace("\\", "\\\\"));
 			}
 			m.appendTail(output);
 			

@@ -46,7 +46,7 @@ public class VolumeCalculatorServlet extends HttpServlet {
 		StringBuilder parametersString = new StringBuilder();
 		parametersString.append("<ul>\r\n");
 		Arrays.stream(calc.getParameters())
-			.map((p) -> String.format("  <li>\\\\(%s = %s\\\\)</li>\r\n", p, calc.getParameter(p)))
+			.map((p) -> String.format("  <li>\\(%s = %s\\)</li>\r\n", p, calc.getParameter(p)))
 			.forEach((x) -> parametersString.append(x));
 		parametersString.append("</ul>\r\n");
 		
@@ -59,7 +59,7 @@ public class VolumeCalculatorServlet extends HttpServlet {
 			
 			Matcher m = varPattern.matcher(template);
 			while (m.find()) {
-				m.appendReplacement(output, vars.get(m.group(1)));
+				m.appendReplacement(output, vars.get(m.group(1)).replace("\\", "\\\\"));
 			}
 			m.appendTail(output);
 			
