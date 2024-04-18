@@ -18,7 +18,13 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
- * Servlet implementation class VolumeCalculatorServlet
+ * Сервлет, отвечающий за вычисления и отображение значений объёмов.
+ * Использует внутренние ресурсы и класс CalculatorFactory, который
+ * по названию создаёт объект калькулятора и загружает в него все
+ * возможные параметры.
+ * 
+ * @author Данила А. Кондратенко
+ * @since 0.1.0
  */
 public class VolumeCalculatorServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
