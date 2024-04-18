@@ -7,6 +7,19 @@ import java.util.HashMap;
 import java.util.Map;
 import ru.danilakondr.volumes.*;
 
+/**
+ * Класс-фабрика калькуляторов. Несмотря на то, что все калькуляторы
+ * публично доступны (они содержатся в пакете <code>ru.danilakondr.volumes</code>),
+ * было бы крайне неудобно использовать switch-case для того, чтобы создавать
+ * объекты калькуляторов по их идентификаторам.
+ * <p>
+ * Благодаря рефлексии, которая используется в Java, можно сопоставить
+ * каждому названию свой класс, который можно создать при помощи получения
+ * и вызова соответствующего конструктора.
+ * 
+ * @author Данила А. Кондратенко
+ * @since 0.1.0
+ */
 public class CalculatorFactory {
 	private static Map<String, Class<? extends Calculator>> calculators = Map.ofEntries(
 			Map.entry("cube", CubeVolumeCalculator.class)
