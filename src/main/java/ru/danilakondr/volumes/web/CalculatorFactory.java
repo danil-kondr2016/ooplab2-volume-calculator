@@ -25,6 +25,7 @@ public class CalculatorFactory {
 			Map.entry("cube", CubeVolumeCalculator.class)
 			, Map.entry("box", BoxVolumeCalculator.class)
 			, Map.entry("ball", BallVolumeCalculator.class)
+			, Map.entry("pyramid", PyramidVolumeCalculator.class)
 		);
 		
 	
