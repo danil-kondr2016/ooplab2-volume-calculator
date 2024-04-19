@@ -31,6 +31,9 @@ public class PyramidVolumeCalculator extends Calculator {
 		super();
 	}
 
+	/**
+	 * Вычисляет объём пирамиды.
+	 */
 	@Override
 	public BigDecimal calculate() {
 		BigDecimal S = getParameter("S");
