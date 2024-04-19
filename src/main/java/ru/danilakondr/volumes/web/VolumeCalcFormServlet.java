@@ -50,6 +50,7 @@ public class VolumeCalcFormServlet extends VolumeCalculatorServlet {
 		String locType = calc.getName();
 		
 		StringBuilder formList = new StringBuilder();
+		formList.append("<p>Точность: <input name=\"precision\"></p>\r\n");
 		Arrays.stream(calc.getParameters())
 			.map((p) -> String.format("<p>\\(%s = \\)<input name=\"%s\"></p>\r\n", p, p))
 			.forEach((x) -> formList.append(x));

@@ -56,7 +56,7 @@ public class VolumeCalculatorServlet extends HttpServlet {
 			.forEach((x) -> parametersString.append(x));
 		parametersString.append("</ul>\r\n");
 		
-		Map<String, String> vars = Map.of("calc-type", locType, "parameters", parametersString.toString(), "answer", answer.toString());
+		Map<String, String> vars = Map.of("calc-type", locType, "parameters", parametersString.toString(), "answer", answer.toString(), "precision", String.valueOf(calc.getPrecision()));
 		
 		try (InputStream is = request.getServletContext().getResourceAsStream("/WEB-INF/answer.html")) {
 			Pattern varPattern = Pattern.compile("\\$\\{(.*?)\\}");

@@ -34,6 +34,6 @@ public class CubeVolumeCalculator extends Calculator {
 	public BigDecimal calculate() {
 		BigDecimal a = getParameter("a");
 		
-		return a.pow(3);
+		return a.pow(3, ctx);
 	}
 }

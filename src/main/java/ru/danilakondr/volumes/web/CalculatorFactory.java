@@ -65,7 +65,7 @@ public class CalculatorFactory {
 		return (String) getField(type, "CALC_NAME", "Неизвестный калькулятор");
 	}
 	
-	public static Calculator createCalc(String type, Map<String, BigDecimal> x) {
+	public static Calculator createCalc(String type, int precision, Map<String, BigDecimal> x) {
 		Calculator result = null;
 		
 		if (!calculators.containsKey(type))
@@ -73,6 +73,8 @@ public class CalculatorFactory {
 		
 		try {
 			result = calculators.get(type).getDeclaredConstructor().newInstance();
+			if (precision != 0)
+				result.setPrecision(precision);
 			
 			for (Map.Entry<String, BigDecimal> e : x.entrySet())
 				result.setParameter(e.getKey(), e.getValue());
@@ -90,10 +92,20 @@ public class CalculatorFactory {
 		
 		HashMap<String, BigDecimal> parameters = new HashMap<>();
 		String type = "";
+		int precision = 0;
 		
 		for (Map.Entry<String, String> e : x.entrySet()) {
 			if (e.getKey().compareTo("type") == 0) {
 				type = e.getValue();
+				continue;
+			}
+			if (e.getKey().compareTo("precision") == 0) {
+				try {
+					precision = Integer.parseInt(e.getValue());
+				}
+				catch (NumberFormatException passed) {
+					precision = 0;
+				}
 				continue;
 			}
 			
@@ -101,7 +113,7 @@ public class CalculatorFactory {
 			parameters.put(e.getKey(), val);
 		}
 		
-		return createCalc(type, parameters);
+		return createCalc(type, precision, parameters);
 	}
 
 }

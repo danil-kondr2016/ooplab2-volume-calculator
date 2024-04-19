@@ -27,13 +27,6 @@ public class BallVolumeCalculator extends Calculator {
 	@SuppressWarnings("unused")
 	private static final String HTML_DOC = "<p>Объём шара вычисляется по формуле \\[V = \\frac43\\pi R^3,\\] где \\(R\\) &mdash; это радиус шара.</p>";
 	
-	private static final BigDecimal PI = new BigDecimal("3.1415926535897932384626433832795028841971");
-	private static final int CALC_SCALE = 40;
-	private static final int REPR_SCALE = 20;
-	
-	private static final MathContext CALC_CONTEXT = new MathContext(CALC_SCALE, RoundingMode.HALF_EVEN);
-	private static final MathContext REPR_CONTEXT = new MathContext(REPR_SCALE, RoundingMode.HALF_EVEN);
-	
 	public BallVolumeCalculator() {
 		super();
 	}
@@ -43,10 +36,9 @@ public class BallVolumeCalculator extends Calculator {
 		BigDecimal radius = getParameter("R");
 		
 		return radius.pow(3)
-				.multiply(BigDecimal.valueOf(4L), CALC_CONTEXT)
-				.divide(BigDecimal.valueOf(3L), CALC_CONTEXT)
-				.multiply(PI, CALC_CONTEXT)
-				.round(REPR_CONTEXT);
+				.multiply(BigDecimal.valueOf(4L), ctx)
+				.divide(BigDecimal.valueOf(3L), ctx)
+				.multiply(PI, ctx);
 	}
 
 }

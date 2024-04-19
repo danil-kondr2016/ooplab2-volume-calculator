@@ -29,12 +29,15 @@ public class BoxVolumeCalculator extends Calculator {
 		super();
 	}
 	
+	/**
+	 * Вычисляет объём прямоугольного параллелепипеда.
+	 */
 	@Override
 	public BigDecimal calculate() {
 		BigDecimal a = getParameter("a");
 		BigDecimal b = getParameter("b");
 		BigDecimal c = getParameter("c");
-		return a.multiply(b).multiply(c);
+		return a.multiply(b, ctx).multiply(c, ctx);
 	}
 
 }
