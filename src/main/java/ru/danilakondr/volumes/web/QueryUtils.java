@@ -12,9 +12,13 @@ public class QueryUtils {
     	
     	for (String query : queryString.split("\\&")) {
     		String[] pair = query.split("=");
+    		String key, value;
     		
-    		String key = URLDecoder.decode(pair[0], StandardCharsets.UTF_8);
-    		String value = URLDecoder.decode(pair[1], StandardCharsets.UTF_8);
+    		key = URLDecoder.decode(pair[0], StandardCharsets.UTF_8);
+    		if (pair.length >= 2)
+    			value = URLDecoder.decode(pair[1], StandardCharsets.UTF_8);
+    		else
+    			value = "";
     		
     		result.put(key, value);
     	}
