@@ -27,6 +27,7 @@ public class CalculatorFactory {
 			, Map.entry("ball", BallVolumeCalculator.class)
 			, Map.entry("pyramid", PyramidVolumeCalculator.class)
 			, Map.entry("strprism", PrismVolumeCalculator.class)
+			, Map.entry("cylinder", CylinderVolumeCalculator.class)
 		);
 		
 	
